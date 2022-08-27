@@ -1,0 +1,68 @@
+<div class="box">
+  <hr>
+  <div class="search">
+    <mat-form-field class="search-full" >
+      <mat-label>ค้นหาจังหวัด</mat-label>
+      <input matInput type="text" [(ngModel)]="provinceInput">
+    </mat-form-field>
+    <button class="button-search" mat-raised-button color="primary" 
+            (click)="searchProvince()">ค้นหา
+    </button>
+   
+
+     <!-- <label>name:</label><input type="text" #provinceInput/>
+    <button (click)="searchProvince(provinceInput.value)">ค้นหา</button>  -->
+  </div>
+  <div *ngIf="searchinfo.province" class="grid-container" >
+    <div class="province">รายงานผล จังหวัด{{searchinfo.province}}</div>
+    <div class="grid-item item1">
+      <Div class="item-list list1 list-up">
+        <h3>ผู้ป่วยรายใหม่</h3>
+        <h1>+{{searchinfo.new_case | number }}</h1>
+      </Div>
+      <div class="item-list list1 list-down">
+        <h3>ผู้ป่วยรวม</h3>
+        <h1>{{searchinfo.total_case | number }}</h1>
+      </div>
+    </div>
+    <div class="grid-item item2">
+      <div class="item-list list2 list-up">
+        <h3>รายใหม่ในประเทศ</h3>
+        <h1>+{{searchinfo.new_case_excludeabroad | number }}</h1>
+      </div>
+      <div class="item-list list2 list-down">
+        <h3>ในประเทศรวม</h3>
+        <h1>{{searchinfo.total_case_excludeabroad | number }}</h1>
+      </div>
+    </div>
+    <div class="grid-item item3">
+      <div class="item-list list3 list-up">
+        <h3>เสียชีวิต</h3>
+        <h1>+{{searchinfo.new_death | number }}</h1>
+      </div>
+      <div class="item-list list3 list-down">
+        <h3>เสียชีวิตรวม</h3>
+        <h1>{{searchinfo.total_death | number }}</h1>
+      </div>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <table class="table-font">
+    <tr>
+      <th>ลำดับที่</th>
+      <th>จังหวัด</th>
+      <th>ผู้ติดเชื้อรายใหม่</th>
+      <th>ดูรายละเอียดเพิ่มเติม</th>
+    </tr>
+    <tr *ngFor="let info of provinceinfo ;let num = index">
+      <td>{{num+1}}</td>
+      <td>{{info.province }}</td>
+      <td>{{info.new_case | number }}</td>
+      <td>
+        <button mat-raised-button color="primary" (click) = "buttonProvince(num)">รายละเอียด</button> 
+      </td> 
+    </tr>
+  </table>  
+</div>
+

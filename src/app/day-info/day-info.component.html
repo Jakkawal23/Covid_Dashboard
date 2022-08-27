@@ -1,0 +1,39 @@
+
+<div class="grid-container" *ngFor="let day of dayinfo">
+  <div class="day">
+    รายงานผล COVID-19 ในประเทศใทย ณ วันที่ {{day.txn_date}}
+  </div>
+  <div class="grid-item item1">
+    <Div class="item-list list1 list-up">
+      <h3>ผู้ป่วยรายใหม่</h3>
+      <h1>+{{day.new_case | number}}</h1>
+    </Div>
+    <div class="item-list list1 list-down">
+      ผู้ป่วยรวม
+      <h2>{{day.total_case | number }}</h2>
+    </div>
+  </div>
+  <div class="grid-item item2">
+    <div class="item-list list2 list-up">
+      <h3>หาวป่วยแล้ว</h3>
+      <h1>+{{day.new_recovered | number}}</h1>
+    </div>
+    <div class="item-list list2 list-down">
+      หายป่วยรวม
+      <h2>{{day.total_recovered | number}}</h2>
+    </div>
+  </div>
+  <div class="grid-item item3">
+    <div class="item-list list3 list-up">
+      <h3>เสียชีวิต</h3>
+      <h1>+{{day.new_death | number}}</h1>
+    </div>
+    <div class="item-list list3 list-down">
+      เสียชีวิตรวม
+      <h2>{{day.total_death | number}}</h2>
+    </div>
+  </div>
+  <div class="date">
+    Date : {{day.update_date}}
+  </div>
+</div>

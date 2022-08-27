@@ -1,0 +1,21 @@
+.toolbar {
+    /* position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0; */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(5,104,57,255);
+    /* font-weight: 800; */
+}
+
+.logo{
+  margin: 0px 25px;
+}
+
+.head{
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  text-align : center;
+}
